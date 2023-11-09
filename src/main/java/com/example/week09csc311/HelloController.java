@@ -4,6 +4,15 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+import java.io.File;
+
+
+
+
 
 public class HelloController {
     @FXML
@@ -68,7 +77,26 @@ public class HelloController {
 
 
     public void navigateToNewUI() {
+        try {
+            // Load the new FXML file
+            FXMLLoader loader = new FXMLLoader(new File("C:\\Users\\Rapto\\IdeaProjects\\UIAccessory\\src\\main\\resources\\com\\example\\uiaccessory\\hello-view.fxml").toURI().toURL());
+            Parent root = loader.load();
+
+            // Create a new scene with the new FXML content
+            Scene scene = new Scene(root);
+
+            // Get the stage from the existing UI (assuming it's a Stage)
+            Stage stage = (Stage) addButton.getScene().getWindow();
+
+            // Set the new scene to the stage
+            stage.setScene(scene);
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace(); // Handle the exception appropriately
+        }
     }
+
+
 
     @FXML
     private void onTextFieldKeyReleased() {
