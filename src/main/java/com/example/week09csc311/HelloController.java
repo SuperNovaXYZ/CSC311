@@ -85,7 +85,7 @@ public class HelloController {
             // Create a new scene with the new FXML content
             Scene scene = new Scene(root);
 
-            // Get the stage from the existing UI (assuming it's a Stage)
+            // Get the stage from the existing UI
             Stage stage = (Stage) addButton.getScene().getWindow();
 
             // Set the new scene to the stage
